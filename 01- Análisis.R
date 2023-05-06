@@ -64,27 +64,20 @@ miss <- aggr(dfnorm, col=c('green', 'red'), ylab = c("Histograma de NAs", "Patr�
 summary(miss)
 
 
-#replace_outliers <- function(dfnorm, removeNA = TRUE){
-#  qrts <- quantile(x, probs = c(0.25, 0.75), na.rm = removeNA)
-#  caps <- quantile(x, probs = c(.05, 0.95), na.rm = removeNA)
-#  iqr <- qrts[2]-qrts[1]
-#  h <- 1.5*iqr
-#  x[x<qrts[1]-h] <- caps[1]
-#  x[x>qrts[2]+h] <- caps[2]
-#  x
-#}
 
-#min(dfnorm)
+min(dfnorm)
 
-#dfnorm[is.na(dfnorm)] <- 0   #Quitar valores perdidos y colocarles 0
-#write.csv(dfnorm, file = "DatosModeloNorm.csv") #Guardalos datos en un archivo CSV
-#dfnorm <- read.csv2("DatosModeloNorm.csv", header = TRUE, sep = ",")
-#dfnorm <- dfnorm[,-1] #Quita la primera columna 
+dfnorm[is.na(dfnorm)] <- 0   #Quitar valores perdidos y colocarles 0
+write.csv(dfnorm, file = "DatosModeloNorm.csv") #Guardalos datos en un archivo CSV
+dfnorm <- read.csv2("DatosModeloNorm.csv", header = TRUE, sep = ",")
+dfnorm <- dfnorm[,-1] #Quita la primera columna 
 
-#minimo <- min(dfnorm)  #Guardar el valor mínimo de todos los datos
-#minimo <- -7
+minimo <- min(dfnorm)  #Guardar el valor mínimo de todos los datos
+minimo <- -7
 
-#dfnorm[dfnorm==0] <- minimo - 0.1    #En donde hay ceros colocar el mínimo valor menos 0.1
+dfnorm[dfnorm==0] <- minimo - 0.1    #En donde hay ceros colocar el mínimo valor menos 0.1
+
+
 
 
 dfnorm <- read.csv("DatosModeloNorm.csv", sep = ",")
